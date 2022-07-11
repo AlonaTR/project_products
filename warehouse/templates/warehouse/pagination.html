@@ -1,0 +1,23 @@
+{% extends 'warehouse/base.html'%}
+
+{% block title %} All products {% endblock %}
+{% block content %} 
+    {% include 'includes/nav.html' %}
+    <h2>List of all products:</h2>
+    <ul>
+        {% for product in page_obj %}
+            <li>
+                {{ product.name }}, data: {{ product.timestamp }}, warehouse: {{ product.warehouse.name }}  <a href="update_product/{{product.id}}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <nav>
+        <ul class="pager">
+            {% for p in page_obj.paginator.page_range %}
+            
+                <a href="?page={{p}}">{{p}}</a>
+            
+            {% endfor %}
+        
+        </nav>
+{% endblock %}

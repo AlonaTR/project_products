@@ -3,9 +3,19 @@ from django.http import HttpResponseRedirect
 
 from warehouse.forms import ProductForm
 from .models import Products, Warehouses
-from django.core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator
+
+
+def pagination(request):
+    contact_list = Products.objects.all()
+    paginator = Paginator(contact_list, 10)
+
+    page_number=request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'warehouse/pagination.html', {'page_obj': page_obj,'products': Products.objects.all()})
 
 def all_products(request):
+    
     return render(request, 'warehouse/all_products.html', {'products': Products.objects.all()})
 
 def warehouses(request):

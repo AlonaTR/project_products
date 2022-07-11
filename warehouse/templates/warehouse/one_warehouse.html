@@ -4,13 +4,13 @@
 {% block content %} 
 {% include 'includes/nav.html' %}
 
-    <h2>Products in {{warehouse}}:</h2>
-    {% if products|length < 1 %}
-        <p>No products in {{warehouse}}</p>
-    {% else %}
-    {% for product in products %}
-            <p>{{product.name}} - {{product.timestamp}}</p>
-    {% endfor %}
-    {% endif %}
+<h2>Products in {{warehouse}}:</h2>
+{% if products|length < 1 %}
+    <p>No products in {{warehouse}}</p>
+{% else %}
+{% for product in products %}
+        <p>{{product.name}} - {{product.timestamp}}</p>
+{% endfor %}
+{% endif %}
            
 {% endblock %}
