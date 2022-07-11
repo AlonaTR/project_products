@@ -1,0 +1,12 @@
+{% extends 'warehouse/base.html'%}
+
+{% block title %} All warehouses {% endblock %}
+{% block content %} 
+    {% include 'includes/nav.html' %}
+    <h2>List of all warehouses:</h2>
+    <ul>
+        {% for warehouse in warehouses %}
+            <li>{warehouse.name} - {warehouse.address}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'warehouse/base.html'%}
+
+{% block title %} All products {% endblock %}
+{% block content %} 
+    {% include 'includes/nav.html' %}
+    <h2>List of all products:</h2>
+    <ul>
+        {% for product in products %}
+            <li><a href="{{ product.get_url }}"> {{ product.name }}</a>, data - {{product.timestamp}} , warehouse - {{ product.warehouse }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
