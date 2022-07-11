@@ -6,7 +6,10 @@
     <h2>List of all products:</h2>
     <ul>
         {% for product in products %}
-            <li><a href="{{ product.get_url }}"> {{ product.name }}</a>, data - {{product.timestamp}} , warehouse - {{ product.warehouse }}</li>
+            <li>
+                {{ product.name }}, data: {{ product.timestamp }}, warehouse: {{ product.warehouse.name }}  <a href="update_product/{{product.id}}">Edit</a>
+            </li>
         {% endfor %}
     </ul>
+
 {% endblock %}

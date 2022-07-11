@@ -1,0 +1,25 @@
+{% extends 'warehouse/base.html'%}
+
+{% block title %} Update product {% endblock %}
+{% block content %} 
+    {% include 'includes/nav.html' %}
+    <h2>Update product:</h2>
+    <form action="{% url 'update_product' product.id %}" method="post">
+        {% csrf_token %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+            
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_lable}}">{{ field.label_tag }}</label>
+                {{ field }}
+                <div>
+                    {{ field.errors.as_ul }}
+                </div>
+            </div>
+        {% endfor %} 
+            
+            <button type="submit" class="btn-primary btn-block">Update product</button>
+        </form>
+      
+    
+{% endblock %}
