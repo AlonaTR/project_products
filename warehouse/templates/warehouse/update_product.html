@@ -5,8 +5,7 @@
     {% include 'includes/nav.html' %}
     <h2>Update product:</h2>
     <form action="{% url 'update_product' product.id %}" method="post">
-        {% csrf_token %}
-            
+        {% csrf_token %}           
         {% for field in form %}
             <div class="form-group">
                 <label for="{{ field.id_for_lable}}">{{ field.label_tag }}</label>
