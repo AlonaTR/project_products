@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponseRedirect
-
 from warehouse.forms import ProductForm
 from .models import Products, Warehouses
 from django.core.paginator import Paginator
@@ -24,7 +23,7 @@ def warehouses(request):
 def add_product(request):
     
     if request.method == 'POST':
-        form = ProductForm(request.POST)
+        form = ProductForm(request.POST or None)
         if form.is_valid():
             form.save()
             return redirect('all_products')
